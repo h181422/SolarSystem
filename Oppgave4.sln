@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oppgave4", "Oppgave4\Oppgave4.csproj", "{9443934A-C183-4B1C-8774-3D7588CBCE79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceObjects", "SpaceObjects\SpaceObjects.csproj", "{99D244CF-9B2A-403F-8151-C11CA53ADA2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9443934A-C183-4B1C-8774-3D7588CBCE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9443934A-C183-4B1C-8774-3D7588CBCE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9443934A-C183-4B1C-8774-3D7588CBCE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9443934A-C183-4B1C-8774-3D7588CBCE79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D244CF-9B2A-403F-8151-C11CA53ADA2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D244CF-9B2A-403F-8151-C11CA53ADA2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D244CF-9B2A-403F-8151-C11CA53ADA2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D244CF-9B2A-403F-8151-C11CA53ADA2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5F4F167-B75A-49E7-B92E-9B42993C9287}
+	EndGlobalSection
+EndGlobal
