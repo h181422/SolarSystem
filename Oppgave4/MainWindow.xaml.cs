@@ -137,7 +137,7 @@ namespace Oppgave4
             infoStr += "Orbits: "+planet.Star.Name + "\n";
             infoStr += "Orbital Period: "+planet.OrbitalPeriod + "\n";
             infoStr += "Orbital Radius: "+planet.OrbitalRadius + "\n";
-            infoStr += "Number of moons shown: "+mooncounter + "\n";
+            infoStr += "Number of moons: "+mooncounter + "\n";
             
             planetInfo.Content = infoStr;
         }

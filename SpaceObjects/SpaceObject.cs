@@ -50,11 +50,7 @@ namespace SpaceObjects
             this.rotationalPeriod = rotationalPeriod;
             this.col = col;
         }
-        public virtual void Draw(int time)
-        {
 
-            
-        }
         public virtual void CalculatePosition(double time)
         {
             int orbitX = 0;
@@ -96,10 +92,6 @@ namespace SpaceObjects
             : base(name, orbitalRadius, orbitalPeriod, radius, rotationalPeriod, col) { }
 
 
-        public override void Draw(int time)
-        {
-            
-        }
         public override void CalculatePosition(double time)
         {
             this.position = new Point(0,0);
@@ -115,10 +107,7 @@ namespace SpaceObjects
             this.star = star;
         }
         public Star Star { get { return star; } set { star = value; } }
-        public override void Draw(int time)
-        {
-            
-        }
+
         public override void CalculatePosition(double time)
         {
             base.CalculatePosition(time, star.Position);
@@ -134,10 +123,7 @@ namespace SpaceObjects
             this.planet = planet;
         }
         public Planet Planet { get { return planet; } set { planet = value; } }
-        public override void Draw(int time)
-        {
-            
-        }
+
         public override double LogOrbitRadius(double scaledist)
         {
             return Math.Log(Math.Abs(this.OrbitalRadius)) * scaledist - 7 * scaledist;
@@ -183,9 +169,5 @@ namespace SpaceObjects
         public DwarfPlanet(String name, int orbitalRadius, int orbitalPeriod, int radius,
             int rotationalPeriod, Color col, Star star)
             : base(name, orbitalRadius, orbitalPeriod, radius, rotationalPeriod, col, star) { }
-        public override void Draw(int time)
-        {
-            base.Draw(time);
-        }
     }
 }
