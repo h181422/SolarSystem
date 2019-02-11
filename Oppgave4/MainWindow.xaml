@@ -8,6 +8,11 @@
         Title="MainWindow" Height="680" Width="680">
 
     <Canvas Name="canvas" HorizontalAlignment="Left" Height="680" Margin="0,0,0,0" VerticalAlignment="Top" Width="680">
+        <CheckBox Name="showNames" Content="Vis Navn" Canvas.Left="10" Canvas.Top="58"/>
+        <Label Name="speedLabel" Content=" " Canvas.Left="107" Canvas.Top="55"/>
+        <Slider Name="speedSlider" Minimum="0.1" Maximum="10" ValueChanged="SpeedSlider_ValueChanged" Canvas.Left="10" RenderTransformOrigin="0.361,0.463" Width="660"/>
+        <Slider Name="speedSlider2" Minimum="1" Maximum="100" ValueChanged="SpeedSlider_ValueChanged" Canvas.Left="10" Canvas.Top="23" Width="660"/>
+        <Label Name="planetInfo" Content="" Height="169" Canvas.Left="462" Canvas.Top="478" Width="208"/>
 
     </Canvas>
 </Window>

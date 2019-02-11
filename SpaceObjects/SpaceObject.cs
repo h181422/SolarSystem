@@ -20,6 +20,7 @@ namespace SpaceObjects
         protected int rotationalPeriod;
         protected Color col;
         protected Point position;
+        protected Point positionLog;
         public String Name { get { return name; } set { name = value; } }
         public int OrbitalRadius { get { return orbitalRadius; } set { orbitalRadius = value; } }
         public int OrbitalPeriod { get { return orbitalPeriod; } set { orbitalPeriod = value; } }
@@ -27,11 +28,18 @@ namespace SpaceObjects
         public int RotationalPeriod { get { return rotationalPeriod; } set { rotationalPeriod = value; } }
         public Color Color { get { return col; } set { col = value; } }
         public Point Position { get { return position; } set { position = value; } }
-        public Point PositionLog { get; set; }
+        public Point PositionLog { get { return positionLog; } set { positionLog = value; } }
         public void setPosition(int x, int y) { Position = new Point(x, y); }
         public int X { get { return position.X; } set { position.X = value; } }
         public int Y { get { return position.Y; } set { position.Y = value; } }
+        public int Xlog { get { return positionLog.X; } set { positionLog.X = value; } }
+        public int Ylog { get { return positionLog.Y; } set { positionLog.Y = value; } }
+        public Object txt { get; set; }
         public Ellipse Shape { get; set; }
+        public void Hide()
+        {
+            PositionLog = new Point(-1000, 0);
+        }
         public SpaceObject(String name, int orbitalRadius, int orbitalPeriod, int radius,
             int rotationalPeriod, Color col)
         {
@@ -47,7 +55,7 @@ namespace SpaceObjects
 
             
         }
-        public virtual void CalculatePosition(int time)
+        public virtual void CalculatePosition(double time)
         {
             int orbitX = 0;
             int orbitY = 0;
@@ -56,7 +64,7 @@ namespace SpaceObjects
                 orbitY + (int)(OrbitalRadius * 
                 Math.Cos(Math.PI * time / (OrbitalPeriod/2.0) + (Math.PI/2.0))));
         }
-        public virtual void LogCalculatePosition(int time, double scaledist)
+        public virtual void LogCalculatePosition(double time, double scaledist)
         {
             int orbitX = 0;
             int orbitY = 0;
@@ -65,12 +73,12 @@ namespace SpaceObjects
                 orbitY + (int)(LogOrbitRadius(scaledist) *
                 Math.Cos(Math.PI * time / (OrbitalPeriod / 2.0) + (Math.PI / 2.0))) + (int)scaledist);
         }
-        public double LogOrbitRadius(double scaledist)
+        public virtual double LogOrbitRadius(double scaledist)
         {
             return Math.Log(Math.Abs(this.OrbitalRadius)) * scaledist-10*scaledist;
         }
         
-        protected void CalculatePosition(int time, Point p)
+        protected void CalculatePosition(double time, Point p)
         {
             int orbitX = p.X;
             int orbitY = p.Y;
@@ -92,7 +100,7 @@ namespace SpaceObjects
         {
             
         }
-        public override void CalculatePosition(int time)
+        public override void CalculatePosition(double time)
         {
             this.position = new Point(0,0);
         }
@@ -111,7 +119,7 @@ namespace SpaceObjects
         {
             
         }
-        public override void CalculatePosition(int time)
+        public override void CalculatePosition(double time)
         {
             base.CalculatePosition(time, star.Position);
         }
@@ -130,11 +138,15 @@ namespace SpaceObjects
         {
             
         }
-        public override void CalculatePosition(int time)
+        public override double LogOrbitRadius(double scaledist)
+        {
+            return Math.Log(Math.Abs(this.OrbitalRadius)) * scaledist - 7 * scaledist;
+        }
+        public override void CalculatePosition(double time)
         {
             base.CalculatePosition(time, planet.Position);
         }
-        public override void LogCalculatePosition(int time, double scaledist)
+        public override void LogCalculatePosition(double time, double scaledist)
         {
             int orbitX = Planet.PositionLog.X;
             int orbitY = Planet.PositionLog.Y;
@@ -142,6 +154,7 @@ namespace SpaceObjects
                 Math.Cos(Math.PI * time / (OrbitalPeriod / 2.0))) + (int)scaledist,
                 orbitY + (int)(LogOrbitRadius(scaledist) *
                 Math.Cos(Math.PI * time / (OrbitalPeriod / 2.0) + (Math.PI / 2.0))) + (int)scaledist);
+            CalculatePosition(time);
         }
     }
     public class Comet : SpaceObject
